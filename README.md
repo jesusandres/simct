@@ -29,10 +29,8 @@ Para saber más sobre el Computador Teórico, se puede consultar el libro
 
 El simulador está desarrollado íntegramente en JavaScript como una aplicación
 cliente, sin necesidad de un servidor. Se puede acceder a una versión ejecutable alojada en
-GitHub en [esta dirección](http://example.com).
+GitHub en [esta dirección](https://jesusandres.github.io/simct/).
 
-Además, se puede descargar [este archivo](http://example.com) y ejecutarlo
-localmente.
 
 ## Desarrollo
 
