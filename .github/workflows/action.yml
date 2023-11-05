@@ -1,7 +1,7 @@
 name: Test and Deploy
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   build:
     environment:
@@ -50,7 +50,7 @@ jobs:
           git add docs/*
           git diff-index --cached --quiet HEAD || git commit -m "Update simct.js" &&
           git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}
-          git push origin master:gh-pages -f
+          git push origin main:gh-pages -f
     - name: Tests KO
       if: ${{ failure() }}
       run: |
