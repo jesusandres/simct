@@ -38,6 +38,6 @@ localmente.
 
 El simulador está publicado como software libre con licencia MIT. 
 
-La evolución del software será continuada en [este repositorio](https://github.com/asi-uniovi/simct))
+La evolución del software será continuada en [este repositorio](https://github.com/asi-uniovi/simct)
 
 

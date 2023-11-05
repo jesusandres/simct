@@ -1,0 +1,157 @@
+; This program needs:
+;    - A Keyboard mapped in 0F000h with Vector Interruption routine mapped in 0005h 
+;    - A key pressed in the keyboard triggers an interruption and keys are read till the buffer is empty
+;    - A Screen mapped in 0F100h
+;    - A Lights device mapped in 0F200h with Vector Interruption routine mapped in 0006h 
+;    - Switches 13,12,11,10,9,8 are readed every time a character is going to be printed:
+;        - Switches 13,12,11 represent the 3 bits that state the background color of a character printed in the screen
+;        - Switches 10,9,8 represent the 3 bits that state the color of a character printed in the screen (beware that at first black color fits the screen background so the character appears not to be there)
+;    - If we click the Int button in the switches device, switches 1 and 0 are send to the control register of the Screen
+;        - Switch 0 deletes characters (also screen position is resseted to restart in 0) when is set
+;        - Switch 1 powers the screen on when is set (beware that switches start in off position)
+
+ORIGEN 1000h
+INICIO main
+.PILA 20h
+
+
+.DATOS
+screen VALOR 0F100h
+screenpos VALOR 0F100h
+keyboard VALOR 0F000h
+keyboard_control VALOR 0F001h
+keyboard_vector VALOR 0005h
+lights VALOR 0F200h
+lights_vector VALOR 0006h
+
+.CODIGO
+main:
+movl r1, BYTEBAJO DIRECCION keyboard_vector
+movh r1, BYTEALTO DIRECCION keyboard_vector
+mov r1, [r1]; Now we have Keyboard interruption vector in r1
+movl r2, BYTEBAJO DIRECCION keyboard_routine
+movh r2, BYTEALTO DIRECCION keyboard_routine
+mov [r1], r2; We store in the Keyboard's Interruption vector address, the first memory position where the routine is stored
+movl r1, BYTEBAJO DIRECCION lights_vector
+movh r1, BYTEALTO DIRECCION lights_vector
+mov r1, [r1]; Now we have Lights device interruption vector in r1
+movl r2, BYTEBAJO DIRECCION lights_routine
+movh r2, BYTEALTO DIRECCION lights_routine
+mov [r1], r2; We store in the Lights' Interruption vector address, the first memory position where the routine is stored
+sti
+jmp -1
+
+
+PROCEDIMIENTO keyboard_routine
+push r0
+push r1
+push r2
+
+movl r0, BYTEBAJO DIRECCION keyboard
+movh r0, BYTEALTO DIRECCION keyboard
+mov r0, [r0]
+movl r1, BYTEBAJO DIRECCION keyboard_control
+movh r1, BYTEALTO DIRECCION keyboard_control
+mov r1, [r1]
+movl r2, 00h
+movh r2, 01h
+mov r3, [r1]
+and r3, r3, r2; We check Keyboard's control register with the mask 0100, if theres keys in the buffer it will get 0100
+brz loop; If we get 0000 we get out of the loop
+mov r4, [r0];We read the character to be printed
+push r4;We store in the stack the character to be printed
+call print_character
+inc r7;We restore stack pointer position, that we incremented before printing
+jmp -8
+loop:
+
+
+pop r2
+pop r1
+pop r0
+iret
+FINP
+
+PROCEDIMIENTO print_character
+push r0
+push r1
+push r2
+push r3
+mov r5, r7;We make a copy of stack's pointer
+inc r5
+inc r5
+inc r5
+inc r5
+inc r5;We increment pointer's copy till we get to the character position, 4 push inside the procedure plus the push before entering the procedure
+movl r3, BYTEBAJO DIRECCION lights
+movh r3, BYTEALTO DIRECCION lights
+mov r3, [r3];We get in r3 Lights register address
+mov r3, [r3];We get in r3 Lights register address content
+movl r2, 00h
+movh r2, 3fh;The mask to obtain 6 bits for back and foreground is 3f00h
+and r3, r2, r3
+movl r0, BYTEBAJO DIRECCION screenpos
+movh r0, BYTEALTO DIRECCION screenpos
+mov r1, [r0];We have in r0 the screen position where we will print the character
+mov r5,[r5];We read the character to be printed
+movl r2, 0ffh
+movh r2, 00h
+and r5, r2, r5;We clear the highest byte related to the scan code of the character
+or r5,r3,r5;We store in the highest byte  back and foreground color for the character
+mov [r1],r5
+inc r1;We increment the next printing position of the screen
+mov [r0], r1;We store the new position
+pop r3
+pop r2
+pop r1
+pop r0
+ret
+FINP
+
+PROCEDIMIENTO lights_routine
+push r0
+push r3
+push r4
+push r5
+push r6
+
+movl r3, BYTEBAJO DIRECCION lights
+movh r3, BYTEALTO DIRECCION lights
+mov r4, [r3];We have in r3 Lights register address
+mov r3, [r4];We have in r3 Lights register address content
+
+mov [r4], r3 ;We turn the same lights on to mimic the switches that are on
+
+movl r0, 01h
+movh r0, 00h
+and r0, r0, r3;We check with mask 0001 if we are trying to write the control word to delete characters
+movl r5, BYTEBAJO DIRECCION screen
+movh r5, BYTEALTO DIRECCION screen
+mov r5, [r5]
+brz 3;If we do, we reset the printing position
+movl r6, BYTEBAJO DIRECCION screenpos
+movh r6, BYTEALTO DIRECCION screenpos
+mov [r6], r5
+
+
+
+movl r6, 78h
+movh r6, 0h
+ADD r5,r5,r6 ;We calculate 121 positions over the first memory position for the screen to get control register
+
+movl r6,03h
+movh r6,00h ;Mask for 0 and 1 bit of the screen control register
+
+and r3,r3,r6 ;We apply the mask to the switches config
+
+mov [r5],r3 ;We write to the control registry of the screen
+
+pop r6
+pop r5
+pop r4
+pop r3
+pop r0
+IRET
+FINP
+
+FIN

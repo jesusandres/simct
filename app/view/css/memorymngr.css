@@ -1,0 +1,180 @@
+/**MEMORY MANAGEMENT**/
+
+#memmngr #header {
+    width: 100%;
+    height: 40px;
+    /* background-color: #CCCCCC; */
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#memmngr #header #header-left {
+    width: 200px;
+    height: 60px;
+    /* background-color: #0f0; */
+    position: absolute;
+    left: 50px;
+    color: #fff;
+    text-align: center;
+}
+
+#memmngr #header #header-right {
+    width: 200px;
+    height: 80px;
+    /* background-color: #0f0; */
+    position: absolute;
+    left: 360px;
+    color: #fff;
+    text-align: center;
+}
+
+#memmngr {
+    /* width: 200px; */
+    height: 610px;
+    width: 600px;
+    /* background-color: #CCCCCC; */
+    position: relative;
+    padding-top: 5px;
+}
+
+#memmngr .middle-nav-active {
+    position: absolute;
+    /* height: 40px; */
+    width: 6px;
+
+}
+
+#memmngr ul {
+    list-style-type: none;
+}
+
+#memmngr li {
+    font-size: 12px;
+    /* padding: 0px 2px 14px 0px; */
+    margin: 0px;
+
+}
+
+#memmngr li:not(:first-child) {
+    margin-top: 15px;
+}
+
+.modules-left li {
+    color: #59f58e;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.modules-right li {
+    color: #59f58e;
+    text-align: left;
+    padding-left: 3px;
+}
+
+.moduletype {
+    width: 60px;
+    margin: 0px auto;
+    /* margin-left: 40%;
+    margin-top: 40%; */
+}
+
+
+#memmngr .modules-left {
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    height: 410px;
+
+}
+
+#memmngr .modules-middle {
+    position: absolute;
+    left: 50px;
+    display: inline-block;
+    width: 200px;
+    padding-top: 8px;
+}
+
+#memmngr .modules {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 464px;
+    /* background-color: #CCCC; */
+
+    background-image: linear-gradient(to bottom, #4297A1 95%, #59f58e 5%);
+    background-size: 1px 29px;
+}
+
+#memmngr .modules-right {
+    position: absolute;
+    left: 252px;
+    display: inline-block;
+    width: 65px;
+    height: 410px;
+}
+
+#memmngr .modules-repo {
+    position: absolute;
+    left: 360px;
+    display: inline-block;
+    width: 230px;
+    height: 100%;
+}
+
+#memmngr .modules-repo [class^=mem-module] {
+    margin-top: 9px;
+}
+
+
+[class^=mem-module] .module-size {
+    float: left;
+    padding-top: 4px;
+    padding-right: 4px;
+
+    font-size: 14px;
+    height: 24px;
+}
+
+[class^=mem-module] img {
+    float: left;
+    width: 24px;
+    height: 24px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+[class^=mem-module] {
+    width: 198px;
+    /* margin: 0px auto; */
+    color: #FFFFFF;
+    font-weight: bold;
+    border: 1px solid #000000;
+}
+
+.modules [class^=mem-module] {
+    position: absolute;
+}
+
+.mem-module4 {
+    height: 27px;
+    background-color: #CCCCCC;
+}
+
+.mem-module8 {
+    height: 56px;
+    background-color: #8ec3ca;
+}
+
+.mem-module16 {
+    height: 114px;
+    background-color: #4a89ad;
+}
+
+.mem-module32 {
+    height: 230px;
+    background-color: #1972a5;
+}

@@ -1,0 +1,59 @@
+; This program needs:
+;    - A Keyboard mapped in 0F000h with Vector Interruption routine mapped in 0005h 
+;    - A Screen mapped in 0F100h
+;    - A Lights device mapped in 0F200h with Vector Interruption routine mapped in 0006h 
+ORIGEN 1000h
+INICIO main
+.PILA 20h
+
+
+.DATOS
+screen VALOR 0F100h
+keyboard VALOR 0F000h
+keyboard_control VALOR 0F001h
+keyboard_vector VALOR 0005h
+lights VALOR 0F200h
+lights_vector VALOR 0006h
+
+.CODIGO
+main:
+;movl r0, BYTEBAJO DIRECCION screen
+;movh r0, BYTEALTO DIRECCION screen
+movl r1, BYTEBAJO DIRECCION keyboard_vector
+movh r1, BYTEALTO DIRECCION keyboard_vector
+mov r1, [r1]
+movl r2, BYTEBAJO DIRECCION keyboard_routine
+movh r2, BYTEALTO DIRECCION keyboard_routine
+mov [r1], r2
+sti
+jmp -1
+
+PROCEDIMIENTO keyboard_routine
+push r0
+push r1
+push r2
+
+movl r0, BYTEBAJO DIRECCION keyboard
+movh r0, BYTEALTO DIRECCION keyboard
+mov r0, [r0]
+movl r1, BYTEBAJO DIRECCION keyboard_control
+movh r1, BYTEALTO DIRECCION keyboard_control
+mov r1, [r1]
+movl r2, 00h
+movh r2, 01h
+
+mov r3, [r1]
+and r3, r3, r2
+brz bucle
+mov r4, [r0]
+jmp -5
+bucle:
+
+
+pop r2
+pop r1
+pop r0
+iret
+FINP
+
+FIN

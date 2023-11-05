@@ -1,0 +1,72 @@
+/*screen*/
+.screen-footer {
+    margin-top: 10px;
+    /* height: 29px; */
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.screen-wrap {
+    border: 1px solid #000000;
+    width: 180px;
+    background-color: #000000
+}
+
+.screen-wrap-off {
+    width: 180px;
+}
+
+.screen-wrap-off .screen-col {
+    background-color: #666;
+}
+
+.radio-onoff-wrap {
+    float: right;
+    margin-right: -1px;
+    padding-top: 0px
+}
+
+.radio-onoff-wrap label {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+.radio-onoff {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-right: 5px;
+    border-radius: 50%;
+
+}
+
+.radio-onoff-inactive {
+    background: #CCCCCC;
+    box-shadow: 0px 0px 1px 1px #cccccc;
+}
+
+.radio-onoff-active {
+    background: #0f0;
+    box-shadow: 0px 0px 1px 1px #0f0;
+}
+
+.screen-col {
+    display: block;
+    float: left;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 12px;
+    height: 14px;
+    text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 16px;
+}
+
+.screen-newrow {
+    clear: both;
+}
+
+/*fin screen*/

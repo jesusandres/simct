@@ -1,0 +1,171 @@
+/*SIGNAL MANAGER*/
+.signal-panel-wrap {
+    position: relative;
+    width: 560px;
+    height: 450px;
+}
+
+
+.signal-panel-registers {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 375px;
+    height: 260px;
+}
+
+.signal-panel-srpc {
+    position: absolute;
+    top: 0px;
+    left: 368px;
+    width: 120px;
+    /* height: 190px; */
+}
+
+
+
+.signal-panel-srpc .signalblock.signal-group-pc {
+    margin-top: 18px;
+    /* height: 190px; */
+}
+
+
+.signal-panel-iraluf {
+    position: absolute;
+    left: 462px;
+}
+
+.signal-panel-leftdown {
+    position: absolute;
+    top: 254px;
+    /* width: 720px; */
+}
+
+.signal-panel-leftdown .signalblock {
+    float: left;
+    min-height: 85px;
+}
+
+
+.signal-panel-esmar {
+    float: left;
+    display: inline-block;
+
+    margin: 0px 8px 0px 0px;
+    color: #ffffff;
+    position: relative;
+    width: 85px;
+}
+
+.signal-panel-esmar .signalblock {
+    /* float: left; */
+    min-height: 22px;
+}
+
+.signal-panel-iraluf>.signalblock:first-child {
+    height: 105px;
+
+}
+
+
+
+.signal-group-pc {
+    height: 65px;
+}
+
+.signalblock-alu {
+
+    height: 142px;
+}
+
+.signalblock-ir {
+    height: 75px;
+}
+
+.signalblock {
+    display: inline-block;
+    border: 1px solid #49b58e;
+    padding: 14px 0px 10px 0px;
+    margin: 20px 0px 0px 5px;
+    color: #ffffff;
+    position: relative;
+    width: 85px;
+}
+
+.signalblock-label {
+    position: absolute;
+    top: -11px;
+    left: 5px;
+    background-color: #49b58e;
+    color: #000000;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 3px 4px 3px 4px
+}
+
+.signalblock>div {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+div [id^="wrap-"] {
+    /* position: relative; */
+}
+
+.signalblock>label[id^="wrap-"] {
+    position: relative;
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+.signalblock>label[id^="wrap-"]>input {
+    position: absolute;
+    /* top: 2px; */
+    left: -16px;
+    margin-top: 0px;
+}
+
+.signal-panel-feedback {
+    background-color: #0f0;
+    height: 30px;
+    margin: 5px 14px 0px 15px;
+}
+
+
+.signal-panel-left {
+    width: 515px;
+}
+
+
+.signal-panel-registers .signalblock {
+    min-height: 85px;
+}
+
+
+
+.signalblock-esmar .signalblock {
+    min-height: 20px;
+}
+
+
+.signal-action-buttons {
+    position: absolute;
+    right: 0px;
+    top: 410px;
+}
+
+.signal-action-buttons button {
+    float: right;
+    margin-bottom: 10px;
+    padding: 4px;
+    margin-right: 5px;
+
+}
+
+
+
+
+
+/*FIN SIGNAL BLOCK*/

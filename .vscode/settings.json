@@ -1,0 +1,6 @@
+{
+    "liveServer.settings.port": 5501,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "javascript.format.enable": false,
+    "standard.autoFixOnSave": true
+}

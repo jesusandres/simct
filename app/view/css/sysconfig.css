@@ -1,0 +1,20 @@
+.system-configuration .lang-menu {
+    clear: both;
+    float: none;
+}
+
+.system-configuration label.lang-label {
+    /* float: left; */
+    color: #FFFFFF;
+
+}
+
+.sysconfig-action-buttons {
+    clear: both;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.ctwindow .system-configuration {
+    min-width: 250px;
+}

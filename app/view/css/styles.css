@@ -1,0 +1,258 @@
+body {
+    background-color: #293C47;
+
+}
+
+
+.tmp {
+    fill: none;
+    stroke: #49b58e;
+    stroke-width: 1.5;
+}
+
+#triggerline {
+    fill: none;
+    stroke: #60e467;
+    stroke-width: 1.5;
+}
+
+.register-sq-outer,
+.bus,
+.alu-keystone,
+.alu-keystone {
+    fill: #2E6D75;
+    stroke: #49b58e;
+    stroke-width: 1.5;
+}
+
+.register-sq-inner,
+.register-sq-step,
+[class^="alu-reg"] {
+    fill: #4297A1;
+    stroke: #4297A1;
+    stroke-width: 1.8;
+}
+
+.register-value,
+.alu-text {
+    fill: #FFFFFF;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: monospace;
+}
+
+.component-label {
+    fill: #49b58e;
+}
+
+#mousebox {
+    position: absolute;
+    /*height: 10px;*/
+    width: 190px;
+    border: 1px solid #49b58e;
+    background-color: #4297A1;
+    color: #4ee258;
+    font-size: 12px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+
+
+
+
+#circle-joint {
+    stroke: black;
+
+}
+
+.circle-joint-inactive {
+    fill: #000;
+}
+
+.circle-joint-active {
+    fill: #0f0;
+}
+
+
+.path {
+    stroke-width: 2
+}
+
+.signal-inactive {
+    /*    stroke-width: 2*/
+}
+
+.signal-inactive text {
+    fill: #49b58e;
+}
+
+.signal-inactive [class^=arrow] {
+    fill: #49b58e;
+}
+
+.signal-inactive polyline {
+    fill: none;
+    stroke: #49b58e;
+}
+
+.int-inactive text {
+    fill: #49b58e;
+}
+
+.int-inactive [class^=arrow] {
+    fill: #49b58e;
+}
+
+.int-inactive polyline {
+    fill: none;
+    stroke: #49b58e;
+}
+
+.int-active {
+
+    stroke-width: 2
+}
+
+.int-active text {
+    fill: #ffcb4e;
+}
+
+.int-active [class^=arrow] {
+    fill: #ffcb4e;
+}
+
+.int-active polyline {
+    fill: none;
+    stroke: #ffcb4e;
+}
+
+
+.bus-inactive text {
+    fill: #00aef5;
+}
+
+.bus-inactive polyline {
+    fill: none;
+    stroke: #00aef5;
+}
+
+.bus-inactive [class^=arrow-] {
+    fill: #00aef5;
+}
+
+
+.wire-text {
+    fill: #49b58e;
+    font-size: 4px;
+}
+
+.arrow-bullet-inactive {
+    fill: #49b58e;
+}
+
+.arrow-bullet-active {
+    fill: #ffcb4e;
+}
+
+.signal-active {
+
+    stroke-width: 2
+}
+
+.signal-active text {
+    fill: #ffcb4e;
+}
+
+.signal-active [class^=arrow] {
+    fill: #ffcb4e;
+}
+
+.signal-active polyline {
+    fill: none;
+    stroke: #ffcb4e;
+}
+
+.bus-active text {
+    fill: #ec00f5;
+}
+
+.bus-active polyline {
+    fill: none;
+    stroke: #ec00f5;
+}
+
+.bus-active [class^=arrow-] {
+    fill: #ec00f5;
+}
+
+
+.bus-blue {
+    fill: #cccc;
+    stroke: #ffcb4e;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* put anchor focus changes here */
+a:focus {
+    outline: none;
+}
+
+/* put input focus changes here */
+input:focus {
+    outline: none;
+}
+
+input {
+    border: 0px;
+}
+
+
+
+
+.icons-es {
+    stroke: #0f0;
+}
+
+
+
+.register-value {
+    font-family: monospace !important;
+}
+
+#alu .active,
+.register-value.active {
+    /* font-family: monospace !important; */
+    fill: #ffcb4e
+}
+
+
+
+#SAB.active .bus,
+#SDB.active .bus {
+    stroke: #ec00f5 !important;
+    fill: #f175f5 !important;
+}
+
+#SAB.active .register-value,
+#SDB.active .register-value {
+    fill: #ffcb4e;
+}
+
+#SAB.active text.register-value,
+#SDB.active text.register-value {
+    fill: #000
+}
+
+
+/* .inputshadow {
+    -webkit-box-shadow: inset 0 0 10px #000;
+    -moz-box-shadow: inset 0 0 10px #000;
+    box-shadow: inset 0 0 10px #000;
+} */
